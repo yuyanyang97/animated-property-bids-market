@@ -25,7 +25,7 @@ const Header = () => {
             Auctions
           </a>
           <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
-            Buy Now
+            New Project
           </a>
           <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
             Sell
