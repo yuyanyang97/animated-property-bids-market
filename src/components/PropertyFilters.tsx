@@ -3,10 +3,12 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { Slider } from '@/components/ui/slider';
-import { Home, Building, MapPin, DollarSign, Bed, Bath, Square } from 'lucide-react';
+import { Home, Building, MapPin, DollarSign, Bed, Bath, Square, Search } from 'lucide-react';
 
 const PropertyFilters = () => {
+  const [searchText, setSearchText] = useState('');
   const [priceRange, setPriceRange] = useState([100000, 5000000]);
   const [areaRange, setAreaRange] = useState([1000, 5000]);
   const [bedrooms, setBedrooms] = useState('');
@@ -22,6 +24,20 @@ const PropertyFilters = () => {
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-6">
+        {/* Search Input */}
+        <div className="space-y-2">
+          <label className="text-sm font-medium flex items-center gap-2">
+            <Search className="h-4 w-4" />
+            Search Properties
+          </label>
+          <Input
+            placeholder="Search by location, keywords..."
+            value={searchText}
+            onChange={(e) => setSearchText(e.target.value)}
+            className="w-full"
+          />
+        </div>
+
         {/* Property Type */}
         <div className="space-y-2">
           <label className="text-sm font-medium flex items-center gap-2">
@@ -124,6 +140,7 @@ const PropertyFilters = () => {
           variant="outline" 
           className="w-full"
           onClick={() => {
+            setSearchText('');
             setPriceRange([100000, 5000000]);
             setAreaRange([1000, 5000]);
             setBedrooms('');
