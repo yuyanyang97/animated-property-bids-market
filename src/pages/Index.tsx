@@ -11,7 +11,7 @@ const Index = () => {
       <div className="min-h-screen bg-background">
         <Header />
         <HeroSection />
-        <AuctionListings />
+        <AuctionListings showBidButton={false} />
         
         {/* Footer */}
         <footer className="bg-gray-900 dark:bg-gray-950 text-white py-12">

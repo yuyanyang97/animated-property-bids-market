@@ -2,6 +2,7 @@
 import React from 'react';
 import { Home, Heart, User, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
 
 const Header = () => {
@@ -18,15 +19,15 @@ const Header = () => {
         </div>
 
         <nav className="hidden md:flex items-center space-x-6">
-          <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
+          <Link to="/" className="text-sm font-medium hover:text-property-600 transition-colors">
             Home
-          </a>
-          <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
+          </Link>
+          <Link to="/auctions" className="text-sm font-medium hover:text-property-600 transition-colors">
             Auctions
-          </a>
-          <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
+          </Link>
+          <Link to="/new-project" className="text-sm font-medium hover:text-property-600 transition-colors">
             New Project
-          </a>
+          </Link>
           <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
             Sell
           </a>

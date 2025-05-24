@@ -23,6 +23,7 @@ interface PropertyCardProps {
   isAuction: boolean;
   auctionEndTime?: Date;
   status: 'live' | 'upcoming' | 'sold';
+  showBidButton?: boolean;
 }
 
 const PropertyCard: React.FC<PropertyCardProps> = ({
@@ -41,6 +42,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   isAuction,
   auctionEndTime,
   status,
+  showBidButton = true,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -138,19 +140,28 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                 </div>
               )}
             </div>
-            <Button 
-              className={`${
-                isAuction 
-                  ? 'bg-auction-600 hover:bg-auction-700' 
-                  : 'bg-property-600 hover:bg-property-700'
-              } transition-all duration-300 hover:scale-105`}
-              onClick={(e) => {
-                e.stopPropagation();
-                handleCardClick();
-              }}
-            >
-              {isAuction ? 'Place Bid' : 'View Details'}
-            </Button>
+            {(isAuction && showBidButton) && (
+              <Button 
+                className="bg-auction-600 hover:bg-auction-700 transition-all duration-300 hover:scale-105"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick();
+                }}
+              >
+                Place Bid
+              </Button>
+            )}
+            {!isAuction && (
+              <Button 
+                className="bg-property-600 hover:bg-property-700 transition-all duration-300 hover:scale-105"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleCardClick();
+                }}
+              >
+                View Details
+              </Button>
+            )}
           </div>
         </CardContent>
       </Card>

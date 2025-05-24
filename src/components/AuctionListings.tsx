@@ -1,8 +1,11 @@
-
 import React from 'react';
 import PropertyCard from './PropertyCard';
 
-const AuctionListings = () => {
+interface AuctionListingsProps {
+  showBidButton?: boolean;
+}
+
+const AuctionListings: React.FC<AuctionListingsProps> = ({ showBidButton = true }) => {
   // Sample data for properties
   const properties = [
     {
@@ -129,7 +132,7 @@ const AuctionListings = () => {
               className="animate-fade-in"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <PropertyCard {...property} />
+              <PropertyCard {...property} showBidButton={showBidButton} />
             </div>
           ))}
         </div>
