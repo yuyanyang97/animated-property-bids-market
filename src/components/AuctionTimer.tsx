@@ -42,8 +42,8 @@ const AuctionTimer: React.FC<AuctionTimerProps> = ({ endTime, className = '' }) 
     }
 
     timerComponents.push(
-      <div key={interval} className="text-center">
-        <div className="text-2xl font-bold text-auction-600 dark:text-auction-400">
+      <div key={interval} className="text-center flex-1">
+        <div className="text-lg font-bold text-auction-600 dark:text-auction-400">
           {timeLeft[interval as keyof typeof timeLeft]}
         </div>
         <div className="text-xs text-gray-500 uppercase tracking-wide">
@@ -54,16 +54,16 @@ const AuctionTimer: React.FC<AuctionTimerProps> = ({ endTime, className = '' }) 
   });
 
   return (
-    <div className={`flex items-center space-x-4 ${className}`}>
-      <div className="flex items-center space-x-1 text-auction-600 dark:text-auction-400">
-        <Clock className="h-4 w-4 animate-pulse" />
-        <span className="text-sm font-medium">Auction Ends:</span>
+    <div className={`w-full ${className}`}>
+      <div className="flex items-center space-x-2 mb-2">
+        <Clock className="h-4 w-4 animate-pulse text-auction-600 dark:text-auction-400" />
+        <span className="text-sm font-medium text-auction-600 dark:text-auction-400">Auction Ends:</span>
       </div>
-      <div className="flex space-x-4">
+      <div className="flex space-x-2 w-full">
         {timerComponents.length ? (
           timerComponents
         ) : (
-          <div className="text-red-500 font-bold animate-pulse-glow">AUCTION ENDED</div>
+          <div className="text-red-500 font-bold animate-pulse-glow text-center w-full">AUCTION ENDED</div>
         )}
       </div>
     </div>

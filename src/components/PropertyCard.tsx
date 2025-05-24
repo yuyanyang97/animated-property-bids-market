@@ -53,7 +53,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
   return (
     <>
       <Card 
-        className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in cursor-pointer"
+        className="group overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-fade-in cursor-pointer flex flex-col h-full"
         onClick={handleCardClick}
       >
         <div className="relative overflow-hidden">
@@ -88,7 +88,7 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </Button>
         </div>
         
-        <CardContent className="p-6">
+        <CardContent className="p-6 flex flex-col flex-grow">
           <div className="mb-4">
             <h3 className="text-xl font-bold mb-2 group-hover:text-property-600 transition-colors">
               {title}
@@ -117,13 +117,15 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
           </div>
 
           {isAuction && auctionEndTime && status === 'live' && (
-            <div className="mb-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <AuctionTimer endTime={auctionEndTime} />
+            <div className="mb-4 w-full">
+              <div className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg w-full">
+                <AuctionTimer endTime={auctionEndTime} className="w-full" />
+              </div>
             </div>
           )}
 
-          <div className="flex items-center justify-between">
-            <div>
+          <div className="mt-auto flex items-end justify-between">
+            <div className="flex-grow">
               {isAuction ? (
                 <div>
                   <p className="text-sm text-gray-600 dark:text-gray-400">Current Bid</p>
@@ -140,28 +142,30 @@ const PropertyCard: React.FC<PropertyCardProps> = ({
                 </div>
               )}
             </div>
-            {(isAuction && showBidButton) && (
-              <Button 
-                className="bg-auction-600 hover:bg-auction-700 transition-all duration-300 hover:scale-105"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleCardClick();
-                }}
-              >
-                Place Bid
-              </Button>
-            )}
-            {!isAuction && (
-              <Button 
-                className="bg-property-600 hover:bg-property-700 transition-all duration-300 hover:scale-105"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  handleCardClick();
-                }}
-              >
-                View Details
-              </Button>
-            )}
+            <div className="ml-4">
+              {(isAuction && showBidButton) && (
+                <Button 
+                  className="bg-auction-600 hover:bg-auction-700 transition-all duration-300 hover:scale-105"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCardClick();
+                  }}
+                >
+                  Place Bid
+                </Button>
+              )}
+              {!isAuction && (
+                <Button 
+                  className="bg-property-600 hover:bg-property-700 transition-all duration-300 hover:scale-105"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleCardClick();
+                  }}
+                >
+                  View Details
+                </Button>
+              )}
+            </div>
           </div>
         </CardContent>
       </Card>
