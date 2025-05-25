@@ -1,9 +1,10 @@
 
 import React from 'react';
-import { Home, Heart, User, Menu } from 'lucide-react';
+import { Home, Heart, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import ThemeToggle from './ThemeToggle';
+import MobileSidebar from './MobileSidebar';
 
 const Header = () => {
   return (
@@ -51,12 +52,12 @@ const Header = () => {
               Sign Up
             </Button>
           </Link>
-          <Button variant="ghost" size="icon">
-            <User className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon" className="md:hidden">
-            <Menu className="h-5 w-5" />
-          </Button>
+          <Link to="/user-account">
+            <Button variant="ghost" size="icon">
+              <User className="h-5 w-5" />
+            </Button>
+          </Link>
+          <MobileSidebar />
         </div>
       </div>
     </header>

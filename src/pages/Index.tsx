@@ -2,7 +2,7 @@
 import React from 'react';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
-import AuctionListings from '@/components/AuctionListings';
+import RecentProperties from '@/components/RecentProperties';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -10,7 +10,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <AuctionListings showBidButton={false} />
+      <RecentProperties />
       <Footer />
     </div>
   );
