@@ -31,9 +31,9 @@ const Header = () => {
           <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
             Sell
           </a>
-          <a href="#" className="text-sm font-medium hover:text-property-600 transition-colors">
+          <Link to="/about" className="text-sm font-medium hover:text-property-600 transition-colors">
             About
-          </a>
+          </Link>
         </nav>
 
         <div className="flex items-center space-x-4">
@@ -41,6 +41,16 @@ const Header = () => {
           <Button variant="ghost" size="icon" className="hidden md:flex">
             <Heart className="h-5 w-5" />
           </Button>
+          <Link to="/login">
+            <Button variant="outline" size="sm" className="hidden md:flex">
+              Sign In
+            </Button>
+          </Link>
+          <Link to="/register">
+            <Button size="sm" className="hidden md:flex">
+              Sign Up
+            </Button>
+          </Link>
           <Button variant="ghost" size="icon">
             <User className="h-5 w-5" />
           </Button>
